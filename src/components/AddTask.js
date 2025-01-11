@@ -13,29 +13,35 @@ const AddTask = ({ addTask }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <input
-        type="text"
-        placeholder="Task Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        className="w-full p-2 border rounded"
-        required
-      />
-      <textarea
-        placeholder="Description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        className="w-full p-2 border rounded"
-        rows="3"
-      ></textarea>
-      <button
-        type="submit"
-        className="px-4 py-2 text-white bg-green-500 rounded-lg"
-      >
-        Add Task
-      </button>
-    </form>
+    <div className="flex flex-wrap flex-row   items-center justify-center">
+      <div className="flex flex-wrap flex-row  ">
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="text"
+            placeholder="Task Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full p-2 border rounded text-black"
+            required
+          />
+          <textarea
+            placeholder="Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="w-full p-2 border rounded  text-black"
+            rows="3"
+          ></textarea>
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              className="px-4 py-2 text-white bg-green-500 rounded-lg "
+            >
+              Add Task
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 };
 
