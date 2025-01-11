@@ -4,24 +4,26 @@ const AddTask = ({ addTask }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
 
+  //Add Task
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name.trim() === "") return;
     addTask({ name, description, status: "Not Completed" });
+    //reset input field
     setName("");
     setDescription("");
   };
 
   return (
     <div className="flex flex-wrap flex-row   items-center justify-center ">
-      <div className="flex flex-wrap flex-row  ">
-        <form onSubmit={handleSubmit} className="space-y-4 ">
+      <div className="flex flex-wrap flex-row ">
+        <form onSubmit={handleSubmit} className="space-y-4  ">
           <input
             type="text"
             placeholder="Task Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className=" rounded-full uppercase w-full outline-none p-2 border  text-black shadow-md hover:border-pink-800 font-serif"
+            className=" rounded-full  w-full outline-none p-2 border  text-black shadow-md hover:border-pink-800 font-serif"
             required
           />
           <textarea

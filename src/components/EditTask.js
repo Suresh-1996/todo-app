@@ -6,6 +6,7 @@ const EditTask = ({ task, updateTask, cancelEdit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    //save changes
     updateTask({ ...task, name, description });
   };
 

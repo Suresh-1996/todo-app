@@ -4,15 +4,14 @@ const Preloader = () => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
       <div className="text-center">
-        {/* Logo */}
         <img
-          src="/logo.png" // Replace with your logo path
+          src="/logo.png"
           alt="Task Manager Logo"
           className="w-80 h-80 mx-auto mb-4 animate-pulse"
         />
-        {/* Typing Animation */}
+
         <h1 className="text-2xl font-bold text-purple-800">
-          Welcome to{" "}
+          Welcome to
           <span className="inline-block font-mono overflow-hidden whitespace-nowrap border-r-4 border-blue-500 animate-typing">
             Task Manager
           </span>

@@ -10,13 +10,14 @@ const App = () => {
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState("All");
   const [editingTask, setEditingTask] = useState(null);
-  const [loading, setLoading] = useState(true); // Preloader state
+  // Preloader state
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Simulate loading effect
     const timeout = setTimeout(() => {
       setLoading(false);
-    }, 5000); // Preloader lasts 2 seconds
+    }, 5000); // Simulate 5 sec
 
     // Fetch tasks from the backend
     axios
@@ -26,12 +27,13 @@ const App = () => {
 
     return () => clearTimeout(timeout);
   }, []);
-
+  //Make Task
   const addTask = (task) => {
     axios
       .post("http://localhost:5000/api/tasks", task)
       .then((res) => {
         setTasks([...tasks, { ...task, id: res.data.id }]);
+        //Refresh data
         axios
           .get("http://localhost:5000/api/tasks")
           .then((res) => setTasks(res.data))
@@ -39,7 +41,7 @@ const App = () => {
       })
       .catch((err) => console.error(err));
   };
-
+  //Update Task
   const updateTask = (updatedTask) => {
     axios
       .put(`http://localhost:5000/api/tasks/${updatedTask.id}`, updatedTask)
@@ -47,6 +49,7 @@ const App = () => {
         setTasks(
           tasks.map((task) => (task.id === updatedTask.id ? updatedTask : task))
         );
+        //Refresh data
         axios
           .get("http://localhost:5000/api/tasks")
           .then((res) => setTasks(res.data))
@@ -55,7 +58,7 @@ const App = () => {
       })
       .catch((err) => console.error(err));
   };
-
+  //Delete Task
   const deleteTask = (id) => {
     axios
       .delete(`http://localhost:5000/api/tasks/${id}`)
@@ -68,7 +71,7 @@ const App = () => {
       })
       .catch((err) => console.error(err));
   };
-
+  //Filter by state
   const filteredTasks = tasks.filter((task) => {
     if (filter === "All") return true;
     if (filter === "Completed") return task.status === "Completed";
@@ -89,7 +92,7 @@ const App = () => {
             Task Manager
           </h1>
           <img
-            src="/logo.png" // Replace with your logo path
+            src="/logo.png"
             alt="Task Manager Logo"
             className="w-20 h-20  "
           />

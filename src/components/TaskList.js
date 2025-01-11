@@ -1,6 +1,7 @@
 import React from "react";
 
 const TaskList = ({ tasks, deleteTask, setEditingTask, updateTask }) => {
+  //status logic
   const toggleStatus = (task) => {
     const updatedTask = {
       ...task,
@@ -20,12 +21,10 @@ const TaskList = ({ tasks, deleteTask, setEditingTask, updateTask }) => {
               key={task.id}
               className=" p-4 bg-gray-100 rounded-lg shadow-md flex flex-col lg:flex-row items-start lg:items-center justify-between"
             >
-              {/* Task Info */}
-              <div className=" w-full  break-words">
+              <div className=" w-full  break-words ">
                 <h2 className="text-lg font-bold text-gray-800">{task.name}</h2>
 
-                {/* Description with proper wrapping */}
-                <p className=" text-sm text-gray-700 whitespace-normal break-words">
+                <p className=" text-sm text-gray-700 whitespace-normal break-words ">
                   {task.description}
                 </p>
 
@@ -44,22 +43,22 @@ const TaskList = ({ tasks, deleteTask, setEditingTask, updateTask }) => {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex items-center space-x-4 mt-4 md:mt-0 md:ml-4">
+              <div className="flex items-center space-x-4 mt-4 md:mt-4 md:ml-0 ">
                 <button
                   onClick={() => toggleStatus(task)}
-                  className="px-2 py-1 text-[10px] font-sm text-white bg-blue-500 hover:bg-blue-600 rounded-lg transition"
+                  className="px-2 w-20 py-1 text-[12px] font-sm text-white bg-blue-500 hover:bg-blue-600 rounded-lg "
                 >
                   Toggle Status
                 </button>
                 <button
                   onClick={() => setEditingTask(task)}
-                  className="px-2 py-1 text-[10px] font-medium text-white bg-yellow-500 hover:bg-yellow-600 rounded-lg transition"
+                  className="px-2 py-1 text-[12px] font-medium text-white bg-yellow-500 hover:bg-yellow-600 rounded-lg "
                 >
                   Edit
                 </button>
                 <button
                   onClick={() => deleteTask(task.id)}
-                  className="px-2 py-1 text-[10px] font-medium text-white bg-red-500 hover:bg-red-600 rounded-lg transition"
+                  className="px-2 py-1 text-[12px] font-medium text-white bg-red-500 hover:bg-red-600 rounded-lg "
                 >
                   Delete
                 </button>
