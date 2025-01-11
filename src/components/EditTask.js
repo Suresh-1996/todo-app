@@ -17,26 +17,26 @@ const EditTask = ({ task, updateTask, cancelEdit }) => {
           placeholder="Task Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full p-2 border rounded  text-black"
+          className=" outline-none w-full p-2 border rounded-full  shadow-xl text-orange-900"
           required
         />
         <textarea
           placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          className="w-full p-2 border rounded  text-black"
+          className="outline-none w-full  p-2 border rounded-lg shadow-xl  text-orange-900"
           rows="2"
         ></textarea>
         <div className="flex space-x-2">
           <button
             type="submit"
-            className="px-4 py-2 text-white bg-blue-500 rounded-lg"
+            className=" shadow-md px-4 py-2 text-white bg-blue-500 hover:bg-blue-600 rounded-full"
           >
             Save Changes
           </button>
           <button
             onClick={cancelEdit}
-            className="px-4 py-2 text-white bg-gray-500 rounded-lg"
+            className="shadow-md px-4 py-2 text-white bg-red-700 hover:bg-red-800 rounded-full "
           >
             Cancel
           </button>

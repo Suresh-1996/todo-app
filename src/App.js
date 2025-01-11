@@ -32,6 +32,10 @@ const App = () => {
       .post("http://localhost:5000/api/tasks", task)
       .then((res) => {
         setTasks([...tasks, { ...task, id: res.data.id }]);
+        axios
+          .get("http://localhost:5000/api/tasks")
+          .then((res) => setTasks(res.data))
+          .catch((err) => console.error(err));
       })
       .catch((err) => console.error(err));
   };
@@ -43,6 +47,10 @@ const App = () => {
         setTasks(
           tasks.map((task) => (task.id === updatedTask.id ? updatedTask : task))
         );
+        axios
+          .get("http://localhost:5000/api/tasks")
+          .then((res) => setTasks(res.data))
+          .catch((err) => console.error(err));
         setEditingTask(null);
       })
       .catch((err) => console.error(err));
@@ -53,6 +61,10 @@ const App = () => {
       .delete(`http://localhost:5000/api/tasks/${id}`)
       .then(() => {
         setTasks(tasks.filter((task) => task.id !== id));
+        axios
+          .get("http://localhost:5000/api/tasks")
+          .then((res) => setTasks(res.data))
+          .catch((err) => console.error(err));
       })
       .catch((err) => console.error(err));
   };
@@ -72,9 +84,17 @@ const App = () => {
   return (
     <div className=" flex flex-wrap flex-row min-h-screen bg-gradient-to-r from-orange-400    to-pink-600  text-white">
       <div className="container mx-auto p-4">
-        <h1 className="text-3xl font-bold font-serif text-center mb-4  text-black">
-          Task Manager
-        </h1>
+        <div className="flex flex-wrap items-center justify-center">
+          <h1 className="text-3xl font-bold font-serif text-center mb-4  mt-4 text-black drop-shadow-xl justify-center items-center">
+            Task Manager
+          </h1>
+          <img
+            src="/logo.png" // Replace with your logo path
+            alt="Task Manager Logo"
+            className="w-20 h-20  "
+          />
+        </div>
+
         <Filter filter={filter} setFilter={setFilter} />
         {editingTask ? (
           <EditTask
