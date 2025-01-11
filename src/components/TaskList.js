@@ -11,7 +11,7 @@ const TaskList = ({ tasks, deleteTask, setEditingTask, updateTask }) => {
   };
 
   return (
-    <div className="h-[360px] overflow-auto  mt-4 bg-slate-50 p-4 rounded-lg shadow-lg ">
+    <div className="h-[360px] overflow-auto  mt-4 p-4 rounded-lg shadow-lg ">
       {tasks.length === 0 ? (
         <p className="text-center text-gray-500">No tasks found.</p>
       ) : (
@@ -42,7 +42,7 @@ const TaskList = ({ tasks, deleteTask, setEditingTask, updateTask }) => {
                 </p>
               </div>
 
-              {/* Action Buttons */}
+              {/* Action */}
               <div className="flex items-center space-x-4 mt-4 md:mt-4 md:ml-0 ">
                 <button
                   onClick={() => toggleStatus(task)}

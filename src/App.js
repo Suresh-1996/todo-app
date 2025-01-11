@@ -88,7 +88,7 @@ const App = () => {
     <div className=" flex flex-wrap flex-row min-h-screen bg-gradient-to-r from-orange-400    to-pink-600  text-white">
       <div className="container mx-auto p-4">
         <div className="flex flex-wrap items-center justify-center">
-          <h1 className="text-3xl font-bold font-serif text-center mb-4  mt-4 text-black drop-shadow-xl justify-center items-center">
+          <h1 className="text-3xl font-bold font-serif text-center mb-4  mt-4 text-white drop-shadow-xl justify-center items-center">
             Task Manager
           </h1>
           <img
